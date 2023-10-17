@@ -7,10 +7,10 @@ from starlette.requests import Request
 from starlette.responses import Response
 from starlette.status import HTTP_200_OK
 
-from slackers.hooks import actions, commands, emit, events
-from slackers.models import SlackAction, SlackChallenge, SlackCommand, SlackEnvelope
-from slackers.registry import R
-from slackers.verification import check_timeout, verify_signature
+from gslackers.hooks import actions, commands, emit, events
+from gslackers.models import SlackAction, SlackChallenge, SlackCommand, SlackEnvelope
+from gslackers.registry import R
+from gslackers.verification import check_timeout, verify_signature
 
 log = logging.getLogger(__name__)
 

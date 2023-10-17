@@ -42,7 +42,7 @@ def post_commands_should_require_headers(path: str, headers: dict, client: TestC
 
 def headers_should_be_verified(client: TestClient, mocker):
     timestamp_jan_1_2019_noon = 1546340400
-    time = mocker.patch("slackers.verification.time")
+    time = mocker.patch("gslackers.verification.time")
     time.time.return_value = timestamp_jan_1_2019_noon + (5 * 60) - 1
     signature = "v0=66c758f7c180af608f5984e07c562ad8033c2ccce8b21771655fa7dd8d480ebe"
     valid_headers = {
@@ -60,7 +60,7 @@ def headers_should_be_verified(client: TestClient, mocker):
 
 def timestamp_should_not_exceed_timeout(client: TestClient, mocker):
     timestamp_jan_1_2019_noon = 1546340400
-    time = mocker.patch("slackers.verification.time")
+    time = mocker.patch("gslackers.verification.time")
     time.time.return_value = timestamp_jan_1_2019_noon + (5 * 60) + 1
     os.environ["SLACK_SIGNING_SECRET"] = "TEST_SECRET"
     signature = "v0=66c758f7c180af608f5984e07c562ad8033c2ccce8b21771655fa7dd8d480ebe"

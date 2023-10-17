@@ -4,3 +4,5 @@
 *.egg-info/
 .tox
 dist/
+.venv
+.DS_Store

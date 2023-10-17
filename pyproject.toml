@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "slackers"
-version = "1.0.3"
+name = "gslackers"
+version = "1.0.4"
 readme = "README.md"
-homepage = "https://github.com/uhavin/slackers"
-repository = "https://github.com/uhavin/slackers"
+homepage = "https://github.com/grishjan/slackers"
+repository = "https://github.com/grishjan/slackers"
 description = "Slack webhooks API served by FastAPI"
-authors = ["Niels van Huijstee <niels@huijs.net>"]
+authors = ["Niels van Huijstee <niels@huijs.net>", "Grisha Ghukasyan <grishjan@gmail.com>"]
 license = "MIT"
 classifiers = [
     "Development Status :: 5 - Production/Stable",

@@ -6,7 +6,7 @@ from fastapi import FastAPI
 
 from starlette.testclient import TestClient
 
-from slackers.server import router
+from gslackers.server import router
 
 
 @pytest.fixture
@@ -27,7 +27,7 @@ def test_headers():
 
 @pytest.fixture
 def pass_header_verification(mocker):
-    hmac = mocker.patch("slackers.verification.hmac")
+    hmac = mocker.patch("gslackers.verification.hmac")
     hmac.compare_digest.return_value = True
 
 

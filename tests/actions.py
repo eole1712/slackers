@@ -4,9 +4,9 @@ import pytest
 from starlette.status import HTTP_200_OK
 from starlette.testclient import TestClient
 
-from slackers.hooks import actions
-from slackers.models import SlackAction
-from slackers.registry import R
+from gslackers.hooks import actions
+from gslackers.models import SlackAction
+from gslackers.registry import R
 
 
 @pytest.fixture(autouse=True)
@@ -247,7 +247,7 @@ def post_block_actions_should_return_a_custom_response(
     client: TestClient, test_headers, block_actions
 ):
     action_payload = json.dumps(block_actions)
-    from slackers.hooks import responder
+    from gslackers.hooks import responder
 
     @responder("block_actions:ACTION_ID_1")
     def custom_response(actual_payload):
@@ -371,7 +371,7 @@ def post_interactive_message_should_be_able_to_return_custom_response(
     client: TestClient, test_headers, interactive_message
 ):
 
-    from slackers.hooks import responder
+    from gslackers.hooks import responder
 
     interactive_message_payload = json.dumps(interactive_message)
 
@@ -397,7 +397,7 @@ def post_view_submission_should_return_a_custom_response(
     client: TestClient, test_headers, view_submission
 ):
     action_payload = json.dumps(view_submission)
-    from slackers.hooks import responder
+    from gslackers.hooks import responder
 
     @responder("view_submission:VIEW_CALLBACK_ID")
     def custom_response(actual_payload):
@@ -419,7 +419,7 @@ def max_one_custom_response_should_be_possible(
     client: TestClient, test_headers, view_submission
 ):
     action_payload = json.dumps(view_submission)
-    from slackers.hooks import responder
+    from gslackers.hooks import responder
 
     @responder("view_submission")
     def custom_response(payload):
@@ -440,7 +440,7 @@ def handler_should_return_starlette_response(
     client: TestClient, test_headers, view_submission
 ):
     action_payload = json.dumps(view_submission)
-    from slackers.hooks import responder
+    from gslackers.hooks import responder
 
     @responder("view_submission:VIEW_CALLBACK_ID")
     def custom_response(payload):
